@@ -6,8 +6,10 @@ body{
 	font-family: 'Dosis', sans-serif;
 	-webkit-background-size: cover;
 	background-size: cover;
-	background: url(../images/bg-3.jpg) no-repeat;
+	background: rgb(245,234,228);
+	background: rgb(245,234,228) url(../images/bg-cha1.png) no-repeat;
 	background-attachment : fixed;
+	background-position: bottom;
 	color: #6D6C6C;
 	font-size: 1.8rem;
 }
@@ -23,16 +25,15 @@ img{
 	max-width: 100%;
 }
 
-/*hr{
-	border-top: none;
-}*/
-
 h1{
+	font-family: 'Righteous', cursive;
 	background: rgba(255,255,255,0.6);
 	padding: 10px 5px;
+
 }
 
 h2{
+	font-family: 'Righteous', cursive;
 	background: rgba(255,255,255,0.6);
 	padding: 10px 5px;
 	text-align: center;
@@ -73,9 +74,9 @@ ul{
 	font-size: 1.4rem;
 }
 
-.navbar-brand img{
+/*.navbar-brand img{
 	width: 60px;
-}
+}*/
 
 .navbar-brand{
 	/*background: #fff;*/
@@ -87,8 +88,12 @@ ul{
 	font-size: 2.2rem;
 }
 
-.nav .navbar-nav .navbar-right ul li{
+/*.nav .navbar-nav .navbar-right ul li{
 	padding-left: 10px;
+}*/
+
+.navbar-right{
+	padding-left: 15px;
 }
 
 /*.navbar-brand a:hover{

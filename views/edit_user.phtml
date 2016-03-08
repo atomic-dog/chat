@@ -1,1 +1,37 @@
-edit_user.phtml
+<div class="modal fade" id="modal-edit-user" tabindex="-1" role="dialog" aria-labelledby="modal-label-user-edit">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h1 class="modal-title" id="modal-label-user-edit">Modifier votre compte</h1>
+      </div>
+      <div class="modal-body">
+		<h2>Paramètres de sécurité</h2>
+		<form method="POST">
+			<div class="form-group">
+				<label for="login">Login</label>
+				<input type="text" class="form-control" id="login" name="login" value="<?=htmlentities($_SESSION['login'])?>">
+			</div>
+			<div class="form-group">
+				<label for="old_password">Mot de passe actuel</label>
+				<input type="password" class="form-control" id="old_password" name="old_password" placeholder="Mot de passe actuel">
+			</div>
+			<div class="form-group">
+				<label for="new_password">Nouveau mot de passe</label>
+				<input type="password" class="form-control" id="new_password" name="new_password" placeholder="Nouveau mot de passe">
+			</div>
+			<div class="form-group">
+				<label for="new_password_repeat">Retaper votre nouveau mot de passe</label>
+				<input type="password" class="form-control" id="new_password_repeat" name="new_password_repeat" placeholder="Retaper votre nouveau mot de passe">
+			</div>
+			<button type="submit" class="btn btn-success" name="action" value="edit_user">Modifier les paramètres</button>
+		</form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+  		</div>
+    </div>
+  </div>
+</div>

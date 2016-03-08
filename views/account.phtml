@@ -1,1 +1,16 @@
+<h1>Votre tableau de bord, <strong><?=htmlentities($_SESSION['login'])?></strong></h1>
+
+	<h2>Vos informations</h2>
+<div class="bg-text">
+
+	<p>Login : <strong><?=htmlentities($_SESSION['login'])?></strong></p>
+	
+</div>
+
+	<h3>Modifier les paramètres de votre compte :</h3>
+
+	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-edit-user">Modifier les paramètres</button>
+
+
+
 <?php require('apps/edit_user.php'); ?>
