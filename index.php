@@ -3,8 +3,15 @@
 session_start();
 
 $db = mysqli_connect("192.168.1.24", "chat", "chat", "chat");
-// $db = mysqli_connect("localhost", "root", "", "chat");
-// $db = mysqli_connect("localhost", "3wa", "troiswa", "chat");
+// // <-- DEBUT TEST
+// require('models/Message.class.php');
+// require('models/MessageManager.class.php');
+// $manager = new MessageManager($db);
+// // $manager->create("doazijdoazijdoazjidoazijzd");
+// $list = $manager->getAll();
+// var_dump($list);
+// // FIN TEST -->
+
 if (!$db)
 
 	require('apps/offline.php');
@@ -37,6 +44,7 @@ $traitements_action = [
 	'logout'=>'user',
 	'register'=>'user',
 	'edit_user'=>'user',
+	'create'=>'message',
 ];
 
 if (isset($_POST['action']))
