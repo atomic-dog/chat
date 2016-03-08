@@ -1,4 +1,3 @@
-
 <?php
 
 class User
@@ -9,8 +8,6 @@ class User
 	private $hash_user;
 	private $date_user;
 	private $admin_user;
-
-
 
 	// Déclarer les méthodes
 	// Liste des getters
@@ -31,6 +28,10 @@ class User
 	public function isAdmin()// Un getter d'un booleen transforme le get en is
 	{
 		return $this->admin_user;
+	}
+	public function getHash()
+	{
+		return $this->hash_user;
 	}
 
 	// Liste des setters
@@ -76,7 +77,7 @@ class User
 				throw new Exception("Mot de passe est trop court (< 6 caractères)");
 		}
 		else
-			throw new Exception("Les deux mots de passes ne correspondent");
+			throw new Exception("Les deux mots de passes ne correspondent pas");
 	}
 	public function initPassword($newPassword1, $newPassword2)
 	{

@@ -1,10 +1,12 @@
 <?php 
+var_dump('coucou');
+var_dump('coucou');
 // SESSION
 session_start();
 
-$db = mysqli_connect("192.168.1.24", "chat", "chat", "chat");
+// $db = mysqli_connect("192.168.1.24", "chat", "chat", "chat");
 // $db = mysqli_connect("localhost", "root", "", "chat");
-// $db = mysqli_connect("localhost", "3wa", "troiswa", "chat");
+$db = mysqli_connect("localhost", "3wa", "troiswa", "chat");
 if (!$db)
 
 	require('apps/offline.php');
@@ -37,6 +39,7 @@ $traitements_action = [
 	'logout'=>'user',
 	'register'=>'user',
 	'edit_user'=>'user',
+	'create'=>'message',
 ];
 
 if (isset($_POST['action']))
