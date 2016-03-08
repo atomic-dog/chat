@@ -10,6 +10,8 @@ class User
 	private $date_user;
 	private $admin_user;
 
+
+
 	// Déclarer les méthodes
 	// Liste des getters
 	
@@ -36,11 +38,15 @@ class User
 	{
 		if (strlen($login_user) > 3 && strlen($login_user) < 31)
 			$this->login_user = $login_user;
+		else
+			throw new Exception("Login incorrect (doit être compris entre 4 et 30 caractères)");
 	}
 	public function setAdminUser($admin_user)
 	{
 		if ($admin_user === true || $admin_user === false)
 			$this->admin_user = $admin_user;
+		else
+			throw new Exception("Admin incorrect (doit être égal à true ou false)");
 		// OU
 		$this->admin_user = (bool)$admin_user;// (bool) permet de "caster" une variable en un type particulier, transformer n'importe quel type en booleen (ici)
 	}
@@ -63,8 +69,14 @@ class User
 				{
 					$this->hash_user = password_hash($newPassword, PASSWORD_BCRYPT, ["cost"=>12]);
 				}
+				else
+					throw new Exception("Ancien mot de passe incorrect");
 			}
+			else
+				throw new Exception("Mot de passe est trop court (< 6 caractères)");
 		}
+		else
+			throw new Exception("Les deux mots de passes ne correspondent");
 	}
 	public function initPassword($newPassword1, $newPassword2)
 	{
@@ -77,18 +89,24 @@ class User
 				{
 					$this->hash_user = password_hash($newPassword, PASSWORD_BCRYPT, ["cost"=>12]);
 				}
+				else
+					throw new Exception("Mot de passe est trop court (< 6 caractères)");
 			}
+			else
+				throw new Exception("Les deux mots de passes ne correspondent");
 		}
+		else
+			throw new Exception("Impossible d'initialiser un mot de passe une seconde fois");
 	}
 }
 
 // Tout ça n'a rien a foutre dans le fichier User.class.php, mais c'est plus pratique pour apprendre
 // On va instancier notre classe User
-$user = new User();
+// $user = new User();
 // $user -> objet
 // User -> classe
 // Un objet est une instance d'une classe
-var_dump($user);
+// var_dump($user);
 /*
 object(User)[1]
   private 'id' => null
@@ -97,8 +115,8 @@ object(User)[1]
   private 'date' => null
   private 'admin' => null
 */
-$user->setLoginUser("toto");
-var_dump($user);
+// $user->setLoginUser("toto");
+// var_dump($user);
 /*
 object(User)[1]
   private 'id' => null
@@ -107,8 +125,8 @@ object(User)[1]
   private 'date' => null
   private 'admin' => null
 */
-$user->setLoginUser("aa");
-var_dump($user);
+// $user->setLoginUser("aa");
+// var_dump($user);
 /*
 object(User)[1]
   private 'id' => null
@@ -117,8 +135,8 @@ object(User)[1]
   private 'date' => null
   private 'admin' => null
 */
-$user->initPassword("totototo", "totototo");
-var_dump($user);
+// $user->initPassword("totototo", "totototo");
+// var_dump($user);
 /*
 object(User)[1]
   private 'id' => null
@@ -127,8 +145,8 @@ object(User)[1]
   private 'date' => null
   private 'admin' => null
 */
-$user->initPassword("titititi", "titititi");
-var_dump($user);
+// $user->initPassword("titititi", "titititi");
+// var_dump($user);
 /*
 object(User)[1]
   private 'id' => null

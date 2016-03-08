@@ -2,9 +2,9 @@
 // SESSION
 session_start();
 
-// $db = mysqli_connect("192.168.1.24", "chat", "chat", "chat");
+$db = mysqli_connect("192.168.1.24", "chat", "chat", "chat");
 // $db = mysqli_connect("localhost", "root", "", "chat");
-$db = mysqli_connect("localhost", "3wa", "troiswa", "chat");
+// $db = mysqli_connect("localhost", "3wa", "troiswa", "chat");
 if (!$db)
 
 	require('apps/offline.php');

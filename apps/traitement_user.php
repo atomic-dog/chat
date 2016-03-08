@@ -5,54 +5,36 @@
 // var_dump($_POST);
 // var_dump($_GET);
 // exit;
+require('models/User.class.php');
+require('models/UserManager.class.php');
+$userManager = new UserManager($db);
 // Etape 1
 if (isset($_POST['action']))
 {
 	$action = $_POST['action'];
 	if ($action == 'login')
 	{
-		// Etape 1
 		if (isset($_POST['login'], $_POST['password']))
 		{
-			// Etape 2
-			$login = $_POST['login'];
-			$password = $_POST['password'];
-			// Etape 3
-			if (empty($login))
-				$error = "Login vide";
-			else if (empty($password))
-				$error = "Password vide";
-			else
+			try
 			{
-				// Etape 4
-				$login = mysqli_real_escape_string($db, $login);
-				$query = "SELECT * FROM users WHERE login_user='".$login."'";
-				$res = mysqli_query($db, $query);
-				if ($res)
+				$user = $userManager->getByLogin($_POST['login']);
+				if ($user->verifPassword($_POST['password']))
 				{
-					$user = mysqli_fetch_assoc($res);
-					if ($user)
-					{
-						if (password_verify($password, $user['hash_user']))
-						{
-							// Etape 5
-							$_SESSION['id'] = $user['id_user'];
-							$_SESSION['login'] = $user['login_user'];
-							$_SESSION['role'] = $user['admin_user'];
-							header('Location: home');
-							exit;
-						}
-						else
-							$error = "Mot de passe incorrect";
-
-					}
-					else
-						$error = "Login incorrect";
+					$_SESSION['id'] = $user->getIdUser();
+					$_SESSION['login'] = $user->getLoginUser();
+					$_SESSION['role'] = $user->isAdmin();
+					header('Location: home');
+					exit;
 				}
-				else
-					$error = "Erreur interne au serveur";
+			}
+			catch (Exception $e)
+			{
+				$error = $e->getMessage();
 			}
 		}
+		// Etape 1
+		
 	}
 	else if ($action == 'register')
 	{

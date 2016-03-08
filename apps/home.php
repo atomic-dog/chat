@@ -1,8 +1,14 @@
 <?php
-
-if ( $session_role == 'admin' )
+// $user = new User();
+// var_dump($user->isAdmin());
+// var_dump($user->isAdmin());
+// var_dump($user->isAdmin());
+// var_dump($user->isAdmin());
+// var_dump($user->isAdmin());
+// exit;
+if ( $_SESSION['role'] == $user->isAdmin() )
 	$home = 'home';
-else if ( $session_role == 'user' )
+else if ( $_SESSION['role'] != $user->isAdmin() )
 	$home = 'home';
 else
 	$home = 'home_login';
