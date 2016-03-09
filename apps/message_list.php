@@ -1,1 +1,1 @@
-<?php require('views/message_list.phtml'); ?>
+// <?php require('views/message_list.phtml'); ?>

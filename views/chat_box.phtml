@@ -1,9 +1,4 @@
 
-
-<!DOCTYPE html>
-
-<body style="font-family:Verdana">
-	<div class="container">
 		<div class="row " style="padding-top:40px;">
 			<h3 class="text-center" >READY TO CHAT CHAT CHAT? </h3>
 			<br /><br />
@@ -15,6 +10,7 @@
 				<div class="panel-heading">
 					RECENT CHAT HISTORY
 				</div>
+					<form method="post">
 						<div class="panel-body">
 
 							<ul class="media-list">
@@ -29,8 +25,8 @@
 							                    <img class="media-object img-circle " src="assets/img/user.png" />
 							                </a>
 							                <div class="media-body" >
-							                    22222
-							                    <br />
+							                	<?php require('apps/message.php');?>
+							                    <br/>
 							                   <small class="text-muted"><?=htmlentities($_SESSION['login'])?> | 23rd June at 5:00pm</small>
 							                    <hr />
 							                </div>
@@ -38,20 +34,24 @@
 
 							        </div>
 							    </li>
-									
+							</ul>
+
+
+												
 
 
 <!-- 							INPUT FORM -->
-
-					<div class="panel-footer">
-    					<div class="input-group">
-                            <input type="text" class="form-control" placeholder="Enter Message" />
-                            <span class="input-group-btn">
-                                <button class="btn btn-info" type="button">SEND</button>
-                            </span>
-                        </div>
-					</div>
-				
+					
+						<div class="panel-footer">
+	    					<div class="input-group">
+	                            <input type="text" class="form-control" name="content_message" placeholder="Enter Message" />
+	                            <span class="input-group-btn">
+	                                <button class="btn btn-info" type="submit" name="action" value="create">POSTER</button>
+	                            </span>
+	                        </div>
+						</div>
+					</form>
+				</div>
 			</div>
 		</div>
 
@@ -170,12 +170,11 @@
 			</div>
 			
 		</div>
-	</div>
-</body>
-</html>
+	
+
 
 
 <?php
-require('apps/input.php'); 
-require('apps/message_list.php'); 
+// require('apps/input.php'); 
+// require('apps/message_list.php'); 
 ?>
