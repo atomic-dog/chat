@@ -7,6 +7,7 @@
 // var_dump($user->isAdmin());
 // exit;
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 // if ( $_SESSION['role'] == $user->isAdmin() )
@@ -15,6 +16,8 @@
 // 	$home = 'home';
 // else
 // 	$home = 'home_login';
+=======
+>>>>>>> 095504fe6e4c163743d35209be449e3173145b2a
 
 if (isset($_SESSION['id'],$_SESSION['login']))
 {
