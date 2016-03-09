@@ -40,6 +40,8 @@ if (isset($_POST['action']))
 			try
 			{
 				$userManager->create($_POST['login'], $_POST['password1'], $_POST['password2']);
+				$_SESSION['id'] = mysqli_insert_id($db);
+				$_SESSION['login'] = $login;
 				// var_dump($userManager);exit;
 				// $_SESSION['id'] = $user->getIdUser();
 				// $_SESSION['login'] = $user->getLoginUser();
