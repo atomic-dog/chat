@@ -22,6 +22,4 @@ else
 	require('views/home_login.phtml');
 }
 
-// require('views/home.phtml');
-// require('views/home_login.phtml');
 ?>
