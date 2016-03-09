@@ -1,6 +1,6 @@
 <?php 
-var_dump('coucou');
-var_dump('coucou');
+// var_dump('coucou');
+// var_dump('coucou');
 // SESSION
 session_start();
 
