@@ -1,12 +1,23 @@
 <?php 
 // var_dump('coucou');
 // var_dump('coucou');
+$error = '';
+spl_autoload_register(function($class)
+{
+    require('models/'.$class.'.class.php');
+});
+/*	AVANT :
+function __autoload($class)
+{
+    require('models/'.$class.'.class.php');
+}
+*/
 // SESSION
 session_start();
 
-// $db = mysqli_connect("192.168.1.24", "chat", "chat", "chat");
+$db = mysqli_connect("192.168.1.24", "chat", "chat", "chat");
 // $db = mysqli_connect("localhost", "root", "", "chat");
-$db = mysqli_connect("localhost", "3wa", "troiswa", "chat");
+// $db = mysqli_connect("localhost", "3wa", "troiswa", "chat");
 if (!$db)
 
 	require('apps/offline.php');
