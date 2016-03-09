@@ -16,7 +16,9 @@ if (isset($_POST['action']))
 		{
 			try
 			{
-				$message = $messageManager->create($_POST['content_message']);
+				$manager = new UserManager($db);
+				$user = $manager->getById($_SESSION['id']);
+				$message = $messageManager->create($_POST['content_message'], $user);
 					header('Location: home');
 					exit;
 			}

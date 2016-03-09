@@ -16,12 +16,14 @@ class MessageManager
 	}
 
 
-	public function create($content_message)
+	public function create($content_message, User $user)
 	{
-		$message = new Message();
+		$message = new Message($this->db);
 		$message->setContentMessage($content_message);
+		$message->setUser($user);
 		$content_message = mysqli_real_escape_string($this->db, $message->getContentMessage());
-      	$query = "INSERT INTO messages (content_message, id_user_message) VALUES('".$content_message."', '".$_SESSION['id']."')";
+		$id_user = intval($message->getUser()->getIdUser());
+      	$query = "INSERT INTO messages (content_message, id_user_message) VALUES('".$content_message."', '".$id_user."')";
 		try
 		{
 			$res = mysqli_query($this->db, $query);
@@ -76,7 +78,7 @@ class MessageManager
 		if ($res)
 		{
 			$messages = [];
-			while ($message = mysqli_fetch_object($res, 'Message'))// On récupère les résultats de notre requête un par un
+			while ($message = mysqli_fetch_object($res, 'Message', [$this->db]))// On récupère les résultats de notre requête un par un
 			{
 				$messages[] = $message;
 			}

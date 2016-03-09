@@ -8,6 +8,14 @@ class Message
 	private $content_message;
 	private $date_message;
 	private $id_user_message;
+	private $user;// Propriété calculée != db -> composition
+	private $db;
+
+	// Constructeur
+	public function __construct($db)
+	{
+		$this->db = $db;
+	}
 
 	// Déclarer les méthodes
 	// Liste des getters
@@ -25,9 +33,14 @@ class Message
 	{
 		return $this->date_message;
 	}
-	public function getIdUserMessage()
+	public function getUser()
 	{
-		return $this->id_user_message;
+		if ($this->user == null)
+		{
+			$manager = new UserManager($this->db);
+			$this->user = $manager->getById($this->id_user_message);
+		}
+		return $this->user;
 	}
 
 	// Liste des setters
@@ -39,7 +52,11 @@ class Message
 		else
 			throw new Exception("Votre message doit contenir entre 1 et 1023 caractères");
 	}
-	
+	public function setUser(User $user)
+	{
+		$this->user = $user;
+		$this->id_user_message = $user->getIdUser();
+	}
 
 	// Liste des méthodes "autres"
 	
