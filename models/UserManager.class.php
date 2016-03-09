@@ -50,19 +50,13 @@ class UserManager
 	}
 
 
+	// public function edit($oldPassword, $newPassword1, newPassword2)
+	// {
+
+	// }
+
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 	// public function editPassword($oldPassword, $newPassword1, $newPassword2)
