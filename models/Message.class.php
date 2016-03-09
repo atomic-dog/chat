@@ -35,39 +35,15 @@ class Message
 	{
 		if (strlen($content_message) > 1 && strlen($content_message) <1023)
 			$this->content_message = $content_message;
+
+		else
+			throw new Exception("Votre message doit contenir entre 1 et 1023 caractères");
 	}
 	
 
 	// Liste des méthodes "autres"
 	
-	
-	
-}
 
-// Tout ça n'a rien a foutre dans le fichier User.class.php, mais c'est plus pratique pour apprendre
-// On va instancier notre classe User
-$message = new Message();
-// $user -> objet
-// User -> classe
-// Un objet est une instance d'une classe
-var_dump($message);
-/*
-object(User)[1]
-  private 'id' => null
-  private 'login' => null
-  private 'hash' => null
-  private 'date' => null
-  private 'admin' => null
-*/
-$message->setContentMessage("toto");
-var_dump($message);
-/*
-object(User)[1]
-  private 'id' => null
-  private 'login' => string 'toto' (length=4)
-  private 'hash' => null
-  private 'date' => null
-  private 'admin' => null
-*/
+}
 
 ?>
