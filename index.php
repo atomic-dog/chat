@@ -1,7 +1,10 @@
 <?php 
+var_dump('coucou');
+var_dump('coucou');
 // SESSION
 session_start();
 
+<<<<<<< HEAD
 $db = mysqli_connect("192.168.1.24", "chat", "chat", "chat");
 // // <-- DEBUT TEST
 // require('models/Message.class.php');
@@ -12,6 +15,11 @@ $db = mysqli_connect("192.168.1.24", "chat", "chat", "chat");
 // var_dump($list);
 // // FIN TEST -->
 
+=======
+// $db = mysqli_connect("192.168.1.24", "chat", "chat", "chat");
+// $db = mysqli_connect("localhost", "root", "", "chat");
+$db = mysqli_connect("localhost", "3wa", "troiswa", "chat");
+>>>>>>> 90368ab10000a737e202c1f5b515f21c89fec3d0
 if (!$db)
 
 	require('apps/offline.php');
