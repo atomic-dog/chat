@@ -1,1 +1,3 @@
-<div class="media">[<?=htmlentities($message->getUser()->getLoginUser())?>] : <?=htmlentities($message->getContentMessage())?> : <?=htmlentities($message->getDateMessage())?></div>
+<div class="well">
+	<?=htmlentities($message->getUser()->getLoginUser())?> : <?=htmlentities($message->getContentMessage())?> : <?=htmlentities($message->getDateMessage())?>
+</div>

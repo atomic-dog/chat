@@ -101,3 +101,9 @@ button {
 ul {
   list-style-type: none;
 }
+
+.panel_body{
+  overflow: scroll;
+    height: 200px;
+}
+

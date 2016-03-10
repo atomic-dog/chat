@@ -25,7 +25,7 @@ if (!$db)
 // SECURISATION DE LA VARIABLE PAGE -> $page
 $page = "home";
 $access_page = ['home'];
-$access_page_log = ['account', 'admin', 'home_login'];
+$access_page_log = ['account', 'admin', 'home_login', 'message'];
 
 if (isset($_GET['page']))
 {
@@ -65,6 +65,11 @@ if (isset($_POST['action']))
 	}
 
 }
+// index.php -> apps/message.php
+// $_GET
 
-require('apps/skel.php'); 
+if (isset($_GET['ajax']) && $page == 'message')
+	require('apps/message.php');
+else
+	require('apps/skel.php');
 ?>

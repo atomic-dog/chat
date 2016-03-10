@@ -1,4 +1,3 @@
-
 <?php
 require('models/Message.class.php');
 require('models/MessageManager.class.php');
