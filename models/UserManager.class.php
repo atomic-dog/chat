@@ -12,12 +12,16 @@ class UserManager
 
 	public function getByLogin($login)
 	{
-		$login = mysqli_real_escape_string($this->db, $login);
-		$query = "SELECT * FROM users WHERE login_user='".$login."'";
-		$res = mysqli_query($this->db, $query);
+		// $login = mysqli_real_escape_string($this->db, $login);
+		// $query = "SELECT * FROM users WHERE login_user='".$login."'";
+		$login = $this->db->quote($login);
+		$query = "SELECT * FROM users WHERE login_user=".$login;
+		// $res = mysqli_query($this->db, $query);
+		$res = $this->db->query($query);
 		if ($res)
 		{
-			$user = mysqli_fetch_object($res, "User");
+			// $user = mysqli_fetch_object($res, "User");
+			$user = $res->fetchObject("User");
 			if ($user)
 			{
 				return $user;
@@ -30,12 +34,16 @@ class UserManager
 	}
 	public function getById($id)
 	{
+		// $id = intval($id);
+		// $query = "SELECT * FROM users WHERE id_user='".$id."'";
+		// $res = mysqli_query($this->db, $query);
 		$id = intval($id);
-		$query = "SELECT * FROM users WHERE id_user='".$id."'";
-		$res = mysqli_query($this->db, $query);
+		$query = "SELECT * FROM users WHERE id_user=".$id;
+		$res = $this->db->query($query);
 		if ($res)
 		{
-			$user = mysqli_fetch_object($res, "User");
+			// $user = mysqli_fetch_object($res, "User");
+			$user = $res->fetchObject("User");
 			if ($user)
 			{
 				return $user;
@@ -53,12 +61,17 @@ class UserManager
 		$user->setLoginUser($login);
 		$user->setAdminUser(false);
 		$user->initPassword($password1, $password2);
-		$login = mysqli_real_escape_string($this->db, $user->getLoginUser());
-		$hash = mysqli_real_escape_string($this->db, $user->getHash());
-		$query = "INSERT INTO users (login_user, hash_user) VALUES('".$login."', '".$hash."')";
+		// $login = mysqli_real_escape_string($this->db, $user->getLoginUser());
+		// $hash = mysqli_real_escape_string($this->db, $user->getHash());
+		$login = $this->db->quote($user->getLoginUser());
+		$hash = $this->db->quote($user->getHash());
+		// $query = "INSERT INTO users (login_user, hash_user) VALUES('".$login."', '".$hash."')";
+		$query = "INSERT INTO users (login_user, hash_user) VALUES(".$login.", ".$hash.")";
+		
+
 		try
 		{
-				$res = mysqli_query($this->db, $query);
+				$res = $this->db->exec($query);
 		}
 		catch (Exception $e)
 		{

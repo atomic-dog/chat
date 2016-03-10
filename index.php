@@ -15,12 +15,21 @@ function __autoload($class)
 // SESSION
 session_start();
 
-$db = mysqli_connect("192.168.1.24", "chat", "chat", "chat");
-// $db = mysqli_connect("localhost", "root", "", "chat");
-// $db = mysqli_connect("localhost", "3wa", "troiswa", "chat");
-if (!$db)
+// $db = mysqli_connect("192.168.1.24", "chat", "chat", "chat");
+// // $db = mysqli_connect("localhost", "root", "", "chat");
+// // $db = mysqli_connect("localhost", "3wa", "troiswa", "chat");
+// if (!$db)
 
-	require('apps/offline.php');
+// 	require('apps/offline.php');
+
+try
+{
+    $db = new PDO('mysql:dbname=chat;host=192.168.1.24', 'chat', 'chat');
+}
+catch (PDOException $e)
+{
+    $error = 'Erreur interne';
+}
 
 // SECURISATION DE LA VARIABLE PAGE -> $page
 $page = "home";
@@ -69,7 +78,7 @@ if (isset($_POST['action']))
 // $_GET
 
 if (isset($_GET['ajax']) && $page == 'message')
-	require('apps/message.php');
+	require('apps/message_list.php');
 else
 	require('apps/skel.php');
 ?>

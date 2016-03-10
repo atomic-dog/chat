@@ -107,3 +107,12 @@ ul {
     height: 200px;
 }
 
+.user_message{
+  font-weight: bold;
+}
+
+.date_message{
+  font-size: 70%;
+
+}
+

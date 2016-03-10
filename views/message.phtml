@@ -1,3 +1,6 @@
 <div class="well">
-	<?=htmlentities($message->getUser()->getLoginUser())?> : <?=htmlentities($message->getContentMessage())?> : <?=htmlentities($message->getDateMessage())?>
+	<div class="user_message"><?=htmlentities($message->getUser()->getLoginUser())?></div>
+	<div class="content_message"><?=htmlentities($message->getContentMessage())?></div>
+	<div class="date_message"><?=htmlentities($message->getDateMessage())?></div>
 </div>
+<hr>

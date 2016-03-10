@@ -1,173 +1,19 @@
-
-		<div class="row " style="padding-top:40px;">
-			<h3 class="text-center" >READY TO CHAT CHAT CHAT? </h3>
-			<br /><br />
-
-<!-- ************************* CHAT *************************
- -->
-		<div class="col-md-8">
-			<div class="panel panel-info">
-				<div class="panel-heading">
-					RECENT CHAT HISTORY
-				</div>
-					<form method="post" class="js_form">
-						<div class="panel-body">
-
-							<ul class="media-list">
-
-												<!-- MESSAGE 1 -->
-							    <li class="media">
-
-							        <div class="media-body">
-
-							            <div class="media">
-							                <div class="media-body js_msglist" >
-							                	<?php require('apps/message.php');?>
-							                   
-							                    <hr />
-							                </div>
-							            </div>
-
-							        </div>
-							    </li>
-							</ul>
-
-
-												
-
-
-<!-- 							INPUT FORM -->
-					
-						<div class="panel-footer">
-	    					<div class="input-group">
-	                            <input type="text" class="js_input form-control" name="content_message" placeholder="Enter Message" />
-	                            <span class="input-group-btn">
-	                                <button class="btn btn-info" type="submit" name="action" value="create">POSTER</button>
-	                            </span>
-	                        </div>
-						</div>
-					</form>
-				</div>
+<div class="row" style="padding-top:40px;">
+	<h3 class="text-center" >READY TO CHAT CHAT CHAT? </h3>
+</div>
+<div class="row">
+	<div class="col-md-8">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				RECENT CHAT HISTORY
 			</div>
-		</div>
-
-<!-- 			*************************ONLINE USERS*************************
--->
-			<div class="col-md-4">
-			 	<div class="panel panel-primary">
-				    <div class="panel-heading">
-				       ONLINE USERS
-				    </div>
-				    	<div class="panel-body">
-					        <ul class="media-list">
-
-		<!-- 							USER 1 -->
-
-		                        <li class="media">
-
-		                            <div class="media-body">
-
-		                                <div class="media">
-		                                     <div class="media-body" >
-		                                        <h5>Alex Deo | User </h5>
-		                                        
-		                                       <small class="text-muted">Active From 3 hours</small>
-		                                    </div>
-		                                </div>
-
-		                            </div>
-		                        </li>
-
-		<!-- 							USER 2 -->
-
-								<li class="media">
-
-					                <div class="media-body">
-
-		                                <div class="media">
-		                                    <a class="pull-left" href="#">
-		                                        <img class="media-object img-circle" style="max-height:40px;" src="assets/img/user.gif" />
-		                                    </a>
-		                                    <div class="media-body" >
-		                                        <h5>Jhon Rexa | User </h5>
-		                                        
-		                                       <small class="text-muted">Active From 3 hours</small>
-		                                	</div>
-		                            	</div>
-
-		                            </div>
-		                        </li>
-
-		<!-- 							USER 3 -->
-
-					            <li class="media">
-
-		                            <div class="media-body">
-
-		                                <div class="media">
-		                                    <a class="pull-left" href="#">
-		                                        <img class="media-object img-circle" style="max-height:40px;" src="assets/img/user.png" />
-		                                    </a>
-		                                    <div class="media-body" >
-		                                        <h5>Alex Deo | User </h5>
-		                                        
-		                                       <small class="text-muted">Active From 3 hours</small>
-		                                    </div>
-		                                </div>
-
-		                            </div>
-					            </li>
-
-		<!-- 							USER 4 -->
-
-					            <li class="media">
-
-		                            <div class="media-body">
-
-		                                <div class="media">
-		                                    <a class="pull-left" href="#">
-		                                        <img class="media-object img-circle" style="max-height:40px;" src="assets/img/user.gif" />
-		                                    </a>
-		                                    <div class="media-body" >
-		                                        <h5>Jhon Rexa | User </h5>
-		                                        
-		                                       <small class="text-muted">Active From 3 hours</small>
-		                                    </div>
-		                                </div>
-
-		                            </div>
-		                        </li>
-
-		<!-- 							USER 5 -->
-
-					            <li class="media">
-
-		                            <div class="media-body">
-
-		                                <div class="media">
-		                                    <a class="pull-left" href="#">
-		                                        <img class="media-object img-circle" style="max-height:40px;" src="assets/img/user.png" />
-		                                    </a>
-		                                    <div class="media-body" >
-		                                        <h5>Alex Deo | User </h5>
-		                                        
-		                                       <small class="text-muted">Active From 3 hours</small>
-		                                    </div>
-		                                </div>
-
-		                            </div>
-		                        </li> 
-					        </ul>
-					    </div>
-			    </div>
+			<div class="js_msglist">
+				<?php require('apps/message_list.php'); ?>
 			</div>
-			
+			<?php require('apps/input.php'); ?>
 		</div>
-	
-
-
-
-<?php
-// require('apps/input.php'); 
-// require('apps/message_list.php'); 
-?>
+	</div>	
+	<div class="col-md-4">
+		<?php require('apps/online.php'); ?>
+	</div>	
+</div>
