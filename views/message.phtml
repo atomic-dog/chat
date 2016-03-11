@@ -1,6 +1,5 @@
-<div class="well">
+<div class="message">
 	<div class="user_message"><?=htmlentities($message->getUser()->getLoginUser())?></div>
 	<div class="content_message"><?=htmlentities($message->getContentMessage())?></div>
-	<div class="date_message"><?=htmlentities($message->getDateMessage())?></div>
+	<div class="date_message text-muted"><?=htmlentities($message->getDateMessage())?></div>
 </div>
-<hr>

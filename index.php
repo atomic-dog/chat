@@ -25,6 +25,7 @@ session_start();
 try
 {
     $db = new PDO('mysql:dbname=chat;host=192.168.1.24', 'chat', 'chat');
+    // $db = new PDO('mysql:dbname=chat;host=localhost', 'root', '');
 }
 catch (PDOException $e)
 {
