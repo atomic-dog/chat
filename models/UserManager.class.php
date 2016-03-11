@@ -31,6 +31,7 @@ class UserManager
 		}
 		else
 			throw new Exception("Erreur interne");
+
 	}
 	public function getById($id)
 	{
@@ -68,7 +69,6 @@ class UserManager
 		// $query = "INSERT INTO users (login_user, hash_user) VALUES('".$login."', '".$hash."')";
 		$query = "INSERT INTO users (login_user, hash_user) VALUES(".$login.", ".$hash.")";
 		
-
 		try
 		{
 				$res = $this->db->exec($query);
@@ -100,6 +100,35 @@ class UserManager
 			throw new Exception("Erreur interne");
 	}
 
+	public function isOnline()
+	{
+	
+		$query = "SELECT * FROM users WHERE date_user>CURRENT_TIMESTAMP	- 5";
+		$res = $this->db->query($query);
+		if ($res)
+		{
+			$users = [];
+			// while ($message = mysqli_fetch_object($res, 'Message', [$this->db]))// On récupère les résultats de notre requête un par un
+			while ($user = $res->fetchObject("User"))
+			{
+				$users[] = $user;
+			}
+			return $users;
+		}
+		else
+			throw new Exception("Erreur interne");
+	}
+
+	public function updateCurrentUser()
+	{
+		$id = intval($_SESSION['id']);
+		// $user = $this->getById($id);
+		$query = "UPDATE users SET date_user=CURRENT_TIMESTAMP WHERE id_user='".$id."'";
+		// var_dump($query);die;
+		$res = $this->db->exec($query);
+		
+	}
+
 
 
 
@@ -107,8 +136,6 @@ class UserManager
 	// {
 
 	// }
-
-
 }
 	// public function editPassword($oldPassword, $newPassword1, $newPassword2)
 	// {
