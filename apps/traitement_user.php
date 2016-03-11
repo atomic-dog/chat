@@ -20,12 +20,14 @@ if (isset($_POST['action']))
 			{
 				$manager = new UserManager($db);
 				$user = $userManager->getByLogin($_POST['login']);
-				$user->verifPassword($_POST['password']);
-				$_SESSION['id'] = $user->getIdUser();
-				$_SESSION['login'] = $user->getLoginUser();
-				// $_SESSION['role'] = $user->isAdmin();
-				header('Location: home');
-				exit;
+				if($user->verifPassword($_POST['password']))
+				{
+					$_SESSION['id'] = $user->getIdUser();
+					$_SESSION['login'] = $user->getLoginUser();
+					// $_SESSION['role'] = $user->isAdmin();
+					header('Location: home');
+					exit;
+				}
 			}
 			catch (Exception $e)
 			{
