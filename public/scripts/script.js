@@ -1,10 +1,20 @@
+function majDate()
+{
+	$('.date_message').each(function()
+	{
+		var date = $(this).text();
+		var str = moment(date).fromNow();
+		$(this).html(str);
+	});
+}
+
 function refresh()
 {
   $.get('index.php?page=message&ajax', function(html)
   {
    $('.js_msglist').html(html);
-   
- });
+   majDate();
+ 	});
 }
 
 $(function()
@@ -24,4 +34,5 @@ $(function()
 	{
 		refresh();
 	}, 1000);
+	majDate();
 });

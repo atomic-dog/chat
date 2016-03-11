@@ -8,5 +8,3 @@ while ($count < $max)
 	$count++;
 }
 ?>
-
-

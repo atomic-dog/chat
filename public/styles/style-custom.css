@@ -209,7 +209,6 @@ ul{
 	font-weight: bold;	
 }
 
-
 .user_message{
   font-weight: bold;
   color: #43291A;
@@ -221,7 +220,7 @@ ul{
 }
 
 .online .text-muted {
-	font-size: 10px; 
+	font-size: 10px;
 }
 
 .titreSite{
@@ -229,8 +228,16 @@ ul{
 	margin-top: -5px;
 }
 
+.date_message{
+/*	color: red;*/
+}
+
 .js_msglist{
 	color: #45443F;
+}
+
+.content_message{
+	margin-bottom: -10px;
 }
 /*.list-message{
 	overflow-y:scroll;
