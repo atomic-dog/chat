@@ -8,6 +8,7 @@ class User
 	private $hash_user;
 	private $date_user;
 	private $admin_user;
+
 	// Déclarer les méthodes
 	// Liste des getters
 	
@@ -48,14 +49,15 @@ class User
 		else
 			throw new Exception("Admin incorrect (doit être égal à true ou false)");
 		// OU
-		// $this->admin_user = (bool)$admin_user;// (bool) permet de "caster" une variable en un type particulier, transformer n'importe quel type en booleen (ici)
+		$this->admin_user = (bool)$admin_user;// (bool) permet de "caster" une variable en un type particulier, transformer n'importe quel type en booleen (ici)
 	}
 
 	// Liste des méthodes "autres"
 	// verifier password ?
 	public function verifPassword($password)
 	{
-		return password_verify($password, $this->hash_user);
+		if(!password_verify($password, $this->hash_user))
+			throw new Exception("mot de passe incorrect");
 	}
 	// modifier password ?
 	public function editPassword($oldPassword, $newPassword1, $newPassword2)

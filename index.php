@@ -24,7 +24,7 @@ session_start();
 
 try
 {
-    $db = new PDO('mysql:dbname=chat;host=192.168.1.24', 'chat', 'chat');
+    $db = new PDO('mysql:dbname=chat;host=localhost', '3wa', 'troiswa');
     // $db = new PDO('mysql:dbname=chat;host=localhost', 'root', '');
 }
 catch (PDOException $e)
@@ -32,9 +32,15 @@ catch (PDOException $e)
     $error = 'Erreur interne';
 }
 
+if (isset($_SESSION['id']))
+{
+	$manager = new UserManager($db);
+	$manager->updateCurrentUser();
+}
+
 // SECURISATION DE LA VARIABLE PAGE -> $page
 $page = "home";
-$access_page = ['home'];
+$access_page = ['home', 'online'];
 $access_page_log = ['account', 'admin', 'home_login', 'message'];
 
 if (isset($_GET['page']))
@@ -80,6 +86,9 @@ if (isset($_POST['action']))
 
 if (isset($_GET['ajax']) && $page == 'message')
 	require('apps/message_list.php');
+else if (isset($_GET['ajax']) && $page == 'online')
+	require('apps/online.php');
 else
 	require('apps/skel.php');
+
 ?>
