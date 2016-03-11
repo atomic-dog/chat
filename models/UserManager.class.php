@@ -80,6 +80,28 @@ class UserManager
 		return $this->getByLogin($user->getLoginUser());	
 	}
 
+	public function getAll()
+	{
+
+		$query = "SELECT * FROM users ORDER BY login_user ASC ";
+		// $res = mysqli_query($this->db, $query);
+		$res = $this->db->query($query);
+		if ($res)
+		{
+			$users = [];
+			// while ($message = mysqli_fetch_object($res, 'Message', [$this->db]))// On récupère les résultats de notre requête un par un
+			while ($user = $res->fetchObject("User"))
+			{
+				$users[] = $user;
+			}
+			return $users;
+		}
+		else
+			throw new Exception("Erreur interne");
+	}
+
+
+
 
 	// public function edit($oldPassword, $newPassword1, newPassword2)
 	// {
@@ -88,8 +110,6 @@ class UserManager
 
 
 }
-
-
 	// public function editPassword($oldPassword, $newPassword1, $newPassword2)
 	// {
 
