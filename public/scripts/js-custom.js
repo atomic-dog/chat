@@ -47,7 +47,7 @@ $('#scrollbox').slimScroll({
     // color: '#ffcc00',
     // alwaysVisible: false,
     // distance: '20px',
-    // start: bottom,
+    start: 'bottom',
     // railVisible: true,
     // railColor: '#222',
     // railOpacity: 0.3,

@@ -51,6 +51,8 @@ h3{
 	
 }
 
+
+
 ul{
 	padding: 0;
 }
@@ -169,8 +171,8 @@ ul{
 	box-shadow: 7px -2px 5px 0px rgba(50, 50, 50, 0.2);
 	border-radius: 70px;
 	position: relative;
-	height: 600px;
-	margin-top: 30px;
+	height: 550px;
+	margin-top: 40px;
 	margin-bottom: 100px;
 	padding: 20px 15px;
 }
@@ -179,7 +181,7 @@ ul{
 	content:"";
 	position: absolute;
 	bottom: 100%; 
-	top: 600px; 
+	top: 550px; 
 	right: 67%; 
 	width: 0;
 	height: 0;
@@ -195,13 +197,41 @@ ul{
 	box-shadow: 7px -2px 5px 0px rgba(50, 50, 50, 0.2);
 	border-radius: 100%;
 	position: relative;
-	height: 250px;
-	margin-top: 30px;
-	margin-bottom: 100px;
+	height: 100px;
+	width: 100px;
+	margin-top: 1px;
+	margin-bottom: 15px;
 	padding: 20px 15px;
-
 }
 
+.user_loggedIn{
+	margin-bottom: -5px;
+	font-weight: bold;	
+}
+
+
+.user_message{
+  font-weight: bold;
+  color: #43291A;
+}
+
+.jeSuisLa{
+	margin-top: -5px;
+	color: #F1524E;
+}
+
+.online .text-muted {
+	font-size: 10px; 
+}
+
+.titreSite{
+	margin-bottom: -20px;
+	margin-top: -5px;
+}
+
+.js_msglist{
+	color: #45443F;
+}
 /*.list-message{
 	overflow-y:scroll;
 
@@ -218,7 +248,10 @@ ul{
 }
 
 .input-group{
-	margin-bottom: 20px;
+	position: absolute;
+	left: 10px; /* 10px de la gauche */
+	top: 690px; /* 0 du haut */
+	
 
 }
 

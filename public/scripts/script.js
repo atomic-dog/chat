@@ -3,6 +3,7 @@ function refresh()
   $.get('index.php?page=message&ajax', function(html)
   {
    $('.js_msglist').html(html);
+   
  });
 }
 
